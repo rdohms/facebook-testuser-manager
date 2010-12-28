@@ -1,0 +1,5 @@
+package.xml
+.DS_Store
+nbproject
+pearfarm.spec
+*.tgz

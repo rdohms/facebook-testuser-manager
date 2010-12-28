@@ -1,0 +1,30 @@
+/***********************************
+    Grid (12 column, 30px gutter)
+************************************/
+.gutter { margin-right: 30px; display: inline; }
+.hgutter { margin-bottom: 15px; }
+.s1, .s2, .s3, .s4, .s5, .s6, .s7, .s8, .s9, .s10, .s11, .s12, .sX { float: left; }
+.s1  { width: 53px; }
+.s2  { width: 136px; }
+.s3  { width: 219px; }
+.s4  { width: 302px; }
+.s5  { width: 385px; }
+.s6  { width: 468px; }
+.s7  { width: 551px; }
+.s8  { width: 634px; }
+.s9  { width: 717px; }
+.s10 { width: 800px; }
+.s11 { width: 883px; }
+.s12 { width: 966px; }
+.sX  { width: 1003px; }
+
+/*****
+ClearFix Hack
+******/
+
+/* clear floats in a nice way */
+.group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.group { zoom: 1; }
+
+.clear-both { clear: both; }
+.clear-left { clear: left; }
