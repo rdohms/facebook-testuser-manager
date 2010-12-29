@@ -7,21 +7,31 @@ class Application
 		
 	public function __construct()
 	{
+		//Wrap all input in Inspekt
+		$input = \Inspekt::makeSuperCage();  
+		
+		//Get a Mustache Factory up
 		$mustache = new \App\Mustache\Mustache();
+		
+		//Singleton our facebook interface
 		$facebook = new \Facebook(array(
 		  'appId'  => FACEBOOK_APP_ID,
 		  'secret' => FACEBOOK_APP_SECRET
 		));
 		
+		//Store all in registry for later use
 		\Zend_Registry::set('mustache', $mustache);
 		\Zend_Registry::set('facebook', $facebook);
+		\Zend_Registry::set('input', $input);
 		
 	}
 	
 	public function run()
 	{
 		try {
-			$action = $this->getActionClass($_SERVER['REQUEST_URI']);
+			$actionName = \Zend_Registry::get('input')->server->getRaw('REQUEST_URI');
+
+			$action = $this->getActionClass($actionName);
 			$action->run();
 			
 		} catch (\Exception $e) {

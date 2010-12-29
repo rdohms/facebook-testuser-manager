@@ -19,5 +19,11 @@ div#menu a { color: #CBDEFE; text-decoration: none; }
 div#menu a:hover { color: #FFF;}
 
 
-h1 { font-size: 24px; font-weight: bold; margin: 5px 0 10px 0; }
+h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
 
+
+.about {}
+.about p { padding:10px 0;}
+.about ul {  }
+.about ul li { padding:3px 0; }
+.about strong {font-weight: bold;}

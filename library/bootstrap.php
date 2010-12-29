@@ -15,6 +15,7 @@ include_once ROOT_PATH . 'config/config.ini.php';
 include_once LIB_PATH . 'vendor/facebook/facebook.php';
 include_once LIB_PATH . 'vendor/mustache/Mustache.php';
 include_once LIB_PATH . 'vendor/Zend/Loader/Autoloader.php';
+include_once LIB_PATH . 'vendor/inspekt/Inspekt.php';
 
 //Load an autoloader for App
 $loader = Zend_Loader_Autoloader::getInstance();

@@ -20,6 +20,13 @@ abstract class Base implements iAction
 		return \Zend_Registry::get('mustache');
 	}
 	
+	/**
+	* @return \Inspekt
+	*/
+	public function getInspekt()
+	{
+		
+	}
 }
 
 ?>
