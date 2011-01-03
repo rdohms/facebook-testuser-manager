@@ -1,2 +1,5 @@
 .DS_Store
 .svn
+config/config.ini.php
+!config/config.ini.php.sample
+

@@ -27,3 +27,17 @@ h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
 .about ul {  }
 .about ul li { padding:3px 0; }
 .about strong {font-weight: bold;}
+
+
+.user_list ul {}
+.user_list ul li { margin: 10px 10px; float:left; width:48%;}
+.user_list .name { font-weight: bold; }
+.user_list .minor { font-size: 10px; color: #BBB; }
+.user_list .minor strong{ font-weight: bold; }
+.user_list .cmds {float:right;}
+
+.user_list .perm_list {}
+.user_list .perm_list li { margin: 0; padding: 0 5px; float:left; width: 15%;}
+
+
+.xdebug-var-dump{ background-color: #FFF; padding: 10px; }

@@ -5,7 +5,7 @@ namespace App\Action;
 abstract class Base implements iAction
 {
 	/**
-	* @return \Facebook
+	* @return \App\Facebook\Client
 	*/
 	public function getFacebookClient()
 	{
@@ -25,7 +25,7 @@ abstract class Base implements iAction
 	*/
 	public function getInspekt()
 	{
-		
+		return \Zend_Registry::get('input');
 	}
 }
 

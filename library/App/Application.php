@@ -14,7 +14,7 @@ class Application
 		$mustache = new \App\Mustache\Mustache();
 		
 		//Singleton our facebook interface
-		$facebook = new \Facebook(array(
+		$facebook = new Facebook\Client(array(
 		  'appId'  => FACEBOOK_APP_ID,
 		  'secret' => FACEBOOK_APP_SECRET
 		));
@@ -48,15 +48,19 @@ class Application
 		$name = str_replace('public/', '', $name);
 		$name = ($name == "" || null === $name || $name == "/")? 'list':$name;
 
-		if (strpos($name, '/') !== false) {
+        if (\substr($name, 0, 1) == '/'){
+            $name = \substr($name, 1);
+        }
+
+        if (strpos($name, '/') != false) {
 			$name = strstr($name, '/', true);
 		}
 
-		$name = str_replace('-', ' ', $name);
+        $name = str_replace('-', ' ', $name);
 		$name = ucwords($name);
 		$name = str_replace(' ', '', $name);
-		
-		$class = 'App\\Action\\' . $name . 'Action';
+
+        $class = 'App\\Action\\' . $name . 'Action';
 		if (!class_exists($class)){
 			$action = new \App\Action\ErrorAction();
 			$action->setError( new \Exception('Action '.$name.' not defined') );
