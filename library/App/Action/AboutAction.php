@@ -8,7 +8,8 @@ class AboutAction extends Base
 	public function run()
 	{
 		//Render Template
-		$this->getMustache()->renderContent('about', array());
+		$tpl = $this->getTplEngine()->loadTemplate('about.html');
+        $tpl->display(array());
 	}
 	
 }

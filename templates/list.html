@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 id="user_list">Existing Test Users</h1>
+
+<div class="user_list">
+	<ul>
+		{% for user in users %}
+		<li>
+		<p class="cmds"><a href="{{user.login_url}}"><img src="/images/connect.png" alt="User login URL"></a><a href="#"><img src="/images/delete.png" alt="Delete User"></a></p>
+		<p class='name'>{{user.name}}</p>
+		<p class="minor"><strong>ID:</strong> {{user.id}}</p>
+		<p class="minor"><strong>Access Token:</strong> {{user.access_token}}</p>
+		<p>Application is <strong>not</strong> installed</p>
+		<ul class="perm_list">
+			{% for perm in user.perms|keys %}
+			<li>{{perm}}</li>
+			{% endfor %}
+		</ul>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}

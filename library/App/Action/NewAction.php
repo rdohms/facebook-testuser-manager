@@ -8,7 +8,8 @@ class NewAction extends Base
 	public function run()
 	{		
 		//Render Template
-		$this->getMustache()->renderContent('new', array());
+        $tpl = $this->getTplEngine()->loadTemplate('new.html');
+        $tpl->display(array());
 	}
 	
 }

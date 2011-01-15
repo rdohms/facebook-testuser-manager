@@ -12,6 +12,15 @@ div#box {
 	z-index:-10;
 }
 
+div#footer {
+	margin: 5px auto; 
+	background-color: #FFF; 
+	float: none; 
+	-moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px;
+	padding: 10px;
+	z-index:-10;
+}
+
 div#menu { margin: 5px auto; border-bottom: 2px solid #3F4959; background-color:#3F4959; -moz-border-radius-topleft: 10px; -webkit-border-radius-top-left: 10px; border-top-left-radius: 10px;-moz-border-radius-topright: 10px; -webkit-border-radius-top-right: 10px; border-top-right-radius: 10px}
 div#menu ul {}
 div#menu ul li { float:left; padding: 5px 10px; }
@@ -35,6 +44,7 @@ h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
 .user_list .minor { font-size: 10px; color: #BBB; }
 .user_list .minor strong{ font-weight: bold; }
 .user_list .cmds {float:right;}
+.user_list .cmds a{padding: 0 5px;}
 
 .user_list .perm_list {}
 .user_list .perm_list li { margin: 0; padding: 0 5px; float:left; width: 15%;}

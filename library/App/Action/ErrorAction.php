@@ -10,8 +10,10 @@ class ErrorAction extends Base
 	{
 		$error = new \stdClass();
 		$error->message = $this->error->getMessage();
-		
-		$this->getMustache()->renderContent('error', array('error' => (array) $error));
+		var_dump($error);
+        //Render Template
+        $tpl = $this->getTplEngine()->loadTemplate('error.html');
+        $tpl->display(array('error' => (array) $error));
 	}
 	
 	public function setError($e)

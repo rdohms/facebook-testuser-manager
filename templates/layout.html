@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		{% block head %}
+		<title>Facebook TestUser Manager</title>
+		<link rel="stylesheet" href="css/reset.css" type="text/css">
+		<link rel="stylesheet" href="css/base.css" type="text/css">
+		<link rel="stylesheet" href="css/site.css" type="text/css">
+		{% endblock %}
+	</head>
+	<body>
+		<div id="box" class="s12">
+			<div class="group">
+				<div id="menu" class="s12">
+					<ul>
+						<li><a href="list">List Users</a></li>
+						<li><a href="add">Add New User</a></li>
+						<li><a href="about">About</a></li>
+					</ul>
+				</div>
+				<div id="content" class="s12">
+					{% block content %}{% endblock %}
+				</div>
+			</div>
+		</div>
+		<div id="footer" class="s12">
+	    {% block footer %}
+	      &copy; Copyright 2009 by <a href="http://domain.invalid/">you</a>.
+	    {% endblock %}
+	  </div>
+	</body>
+</html>

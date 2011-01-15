@@ -11,7 +11,7 @@ class Application
 		$input = \Inspekt::makeSuperCage();  
 		
 		//Get a Mustache Factory up
-		$mustache = new \App\Mustache\Mustache();
+		$tplEngine = new Template\Engine();
 		
 		//Singleton our facebook interface
 		$facebook = new Facebook\Client(array(
@@ -20,7 +20,7 @@ class Application
 		));
 		
 		//Store all in registry for later use
-		\Zend_Registry::set('mustache', $mustache);
+		\Zend_Registry::set('tplengine', $tplEngine);
 		\Zend_Registry::set('facebook', $facebook);
 		\Zend_Registry::set('input', $input);
 		

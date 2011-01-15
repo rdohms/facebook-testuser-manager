@@ -13,11 +13,11 @@ abstract class Base implements iAction
 	}
 	
 	/**
-	* @return App/Mustache/Mustache
+	* @return App/Template/Engine
 	*/
-	public function getMustache()
+	public function getTplEngine()
 	{
-		return \Zend_Registry::get('mustache');
+		return \Zend_Registry::get('tplengine');
 	}
 	
 	/**

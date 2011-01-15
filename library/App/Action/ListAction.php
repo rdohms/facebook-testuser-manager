@@ -20,11 +20,8 @@ class ListAction extends Base
 
             //Get Available perms
             $allPerms = $fb->fql('SELECT '.$fb->getFacebookPermissionList().' FROM permissions WHERE uid = "'.$user['id'].'"');
-            $perms = \array_filter(array_shift($allPerms));
-            $details['perms'] = array();
-            foreach($perms as $perm => $value){
-                $details['perms'][] = array('name' => $perm);
-            }
+            $user['perms'] = \array_filter(array_shift($allPerms));
+
 
             //Add to user list with full data
             $users[] = \array_merge($user, $details);
@@ -32,7 +29,8 @@ class ListAction extends Base
         }
 
         //Render Template
-		$this->getMustache()->renderContent('list', array('users' => $users));
+        $tpl = $this->getTplEngine()->loadTemplate('list.html');
+        $tpl->display(array('users' => $users));
 	}
 	
 }

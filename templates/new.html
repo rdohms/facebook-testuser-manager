@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form action="/create" method="post" accept-charset="utf-8">
+	<ul>	
+		<li><label for="permissions">Permissions</label><input type="text" name="permissions" value="" id="permissions"></li>
+		<li>
+			<label for="installed">Should the application already be installed?</label>
+			<input type="radio" name="installed"  value="1" checked="checked"> Yes
+			<input type="radio" name="installed" value="0"> No
+		</li>
+		<li><input type="submit" value="Continue &rarr;"></li>
+	</ul>
+</form>
+{% endblock %}
