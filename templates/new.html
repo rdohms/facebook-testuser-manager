@@ -2,14 +2,21 @@
 
 {% block content %}
 <form action="/create" method="post" accept-charset="utf-8">
-	<ul>	
-		<li><label for="permissions">Permissions</label><input type="text" name="permissions" value="" id="permissions"></li>
-		<li>
-			<label for="installed">Should the application already be installed?</label>
-			<input type="radio" name="installed"  value="1" checked="checked"> Yes
-			<input type="radio" name="installed" value="0"> No
-		</li>
-		<li><input type="submit" value="Continue &rarr;"></li>
-	</ul>
+	<fieldset id="link" class="">
+		<legend>Create New Test User</legend>
+		<p class="instructions">To create a new Test User, valid only for your application and controllable by any developer of this application, fill in the form below. If you want more information on Test Users, view the <a href="http://developers.facebook.com/docs/test_users">documentation</a>.</p>
+		<ul>	
+			<li>
+				<label for="permissions">Extended permissions</label><textarea name="permissions" id="permissions" cols="120" rows="4"></textarea>
+				<span class="note">these are the <a href="http://developers.facebook.com/docs/authentication/permissions">extended permissions</a> you want the user to give the application</span>
+			</li>
+			<li>
+				<label for="installed">Should the application already be installed?</label>
+				<input type="radio" name="installed"  value="1" checked="checked"> Yes
+				<input type="radio" name="installed" value="0"> No
+			</li>
+			<li><input type="submit" value="Continue &rarr;"></li>
+		</ul>
+	</fieldset>
 </form>
 {% endblock %}

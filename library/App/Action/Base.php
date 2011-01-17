@@ -27,6 +27,16 @@ abstract class Base implements iAction
 	{
 		return \Zend_Registry::get('input');
 	}
+
+    public function redirectToError($e)
+    {
+
+        $error = new ErrorAction();
+        $error->setError($e);
+        $error->run();
+
+
+    }
 }
 
 ?>

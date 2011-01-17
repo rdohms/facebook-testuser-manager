@@ -6,16 +6,31 @@ class CreateAction extends Base
 {
 	
 	public function run()
-	{	
-		$fb = $this->getFacebookClient();
+	{
+        try {
+            $fb = $this->getFacebookClient();
 
-        $params = array();
-        $params['installed'] = $this->getInspekt()->post->getInt('installed');
-        $params['permissions'] = $this->getInspekt()->post->getRaw('permissions');
-        var_dump($fb->getAppId());
-        $user = $fb->api('/'.$fb->getAppId().'/accounts/test-users', 'POST', $params);
+            $params = array();
+            $params['installed'] = $this->getInspekt()->post->getInt('installed');
+            $params['permissions'] = $this->getInspekt()->post->getRaw('permissions');
 
-        var_dump($user);
+            $user = $fb->api('/'.$fb->getAppId().'/accounts/test-users', 'POST', $params);
+
+            if (is_array($user)){
+
+                $fb->setAccessToken($user['access_token']);
+                $details = $fb->api('/me');
+
+                $user = \array_merge($user,$details);
+                $success = true;
+            }
+        } catch (\Exception $e) {
+            $this->redirectToError($e);
+            return;
+        }
+
+        $tpl = $this->getTplEngine()->loadTemplate('create.html');
+        $tpl->display(array('error' => !isset($success), 'user' => $user));
 
 	}
 	

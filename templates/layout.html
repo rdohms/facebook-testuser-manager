@@ -5,7 +5,13 @@
 		<title>Facebook TestUser Manager</title>
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/base.css" type="text/css">
+		<link rel="stylesheet" href="css/form.css" type="text/css">
 		<link rel="stylesheet" href="css/site.css" type="text/css">
+		
+		<script src="/js/jquery-1.4.4.js" type="text/javascript"></script>
+		<script src="/js/cmds.js" type="text/javascript"></script>
+		<script src="/js/jquery.tools.min.js" type="text/javascript"></script>
+		
 		{% endblock %}
 	</head>
 	<body>
@@ -14,7 +20,7 @@
 				<div id="menu" class="s12">
 					<ul>
 						<li><a href="list">List Users</a></li>
-						<li><a href="add">Add New User</a></li>
+						<li><a href="new">Add New User</a></li>
 						<li><a href="about">About</a></li>
 					</ul>
 				</div>
@@ -25,8 +31,11 @@
 		</div>
 		<div id="footer" class="s12">
 	    {% block footer %}
-	      &copy; Copyright 2009 by <a href="http://domain.invalid/">you</a>.
+	      &copy; Copyright 2011 by <a href="http://doh.ms/">Rafael Dohms - DMS Systems</a>.
 	    {% endblock %}
 	  </div>
+	<div id="loading" class="loading modal">
+		<img src="/images/loading.gif" alt="Loading...">
+	</div>
 	</body>
 </html>

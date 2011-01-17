@@ -29,7 +29,32 @@ div#menu a:hover { color: #FFF;}
 
 
 h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
+a { color: #3F4959; text-decoration: none;  }
 
+.hidden { display: none;}
+
+.modal {
+	display: none;
+	
+	/* standard decorations */
+	width:400px;
+	border:10px solid #666;
+
+	/* for modern browsers use semi-transparent color on the border. nice! */
+	border:10px solid rgba(82, 82, 82, 0.698);
+
+	/* hot CSS3 features for mozilla and webkit-based browsers (rounded borders) */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+}
+
+.loading {
+	width: 125px;
+	background-color: #FFF;
+	padding: 20px;
+}
+
+.loading img { margin:0 auto; }
 
 .about {}
 .about p { padding:10px 0;}
@@ -37,6 +62,7 @@ h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
 .about ul li { padding:3px 0; }
 .about strong {font-weight: bold;}
 
+.form_div { background-color:#FFF; padding: 10px; }
 
 .user_list ul {}
 .user_list ul li { margin: 10px 10px; float:left; width:48%;}
@@ -49,5 +75,9 @@ h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; }
 .user_list .perm_list {}
 .user_list .perm_list li { margin: 0; padding: 0 5px; float:left; width: 15%;}
 
-
 .xdebug-var-dump{ background-color: #FFF; padding: 10px; }
+
+.centered { margin:0px auto; }
+.warning { width: 50%; padding:10px; margin-top: 10px; margin-bottom: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; border: 1px solid #000; }
+.warning img {  padding-right: 10px; vertical-align: middle; }
+.warning p { height: 48px; font-size: 14px; vertical-align: middle;}

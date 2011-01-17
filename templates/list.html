@@ -7,18 +7,59 @@
 	<ul>
 		{% for user in users %}
 		<li>
-		<p class="cmds"><a href="{{user.login_url}}"><img src="/images/connect.png" alt="User login URL"></a><a href="#"><img src="/images/delete.png" alt="Delete User"></a></p>
+		<p class="cmds"><a href="{{user.login_url}}"><img src="/images/connect.png" alt="User login URL"></a><a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><img src="/images/user_add.png" alt="Add new friend"></a><a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><img src="/images/delete.png" alt="Delete User"></a></p>
 		<p class='name'>{{user.name}}</p>
 		<p class="minor"><strong>ID:</strong> {{user.id}}</p>
 		<p class="minor"><strong>Access Token:</strong> {{user.access_token}}</p>
-		<p>Application is <strong>not</strong> installed</p>
-		<ul class="perm_list">
-			{% for perm in user.perms|keys %}
-			<li>{{perm}}</li>
-			{% endfor %}
-		</ul>
+		<div class="">
+			<ul class="perm_list">
+				{% for perm in user.perms|keys %}
+				<li>{{perm}}</li>
+				{% endfor %}
+			</ul>
+		</div>
+
 		</li>
 		{% endfor %}
 	</ul>
 </div>
+
+<div id="add_friend" class="hidden modal form_div">
+	<form action="/addfriend" method="post" accept-charset="utf-8">
+		<fieldset id="create_relationship_with_other_user" class="">
+			<legend>Create relationship with other user</legend>
+			<input type="hidden" name="origin_user" value="" id="origin_user">
+			<input type="hidden" name="origin_user_token" value="" id="origin_user_token">
+			<ul>
+				<li>
+					<select name="target_user" id="target_user" onchange="" size="1">
+						{% for user in users %}
+						<option value="{{user.id}} {{user.access_token}}">{{user.name}}</option>
+						{% endfor %}>					
+					</select>
+				</li>
+				<li>
+					<input type="submit" value="Add friend &rarr;">
+					<input type="button" class="close" name="Cancel" value="Cancel" id="Cancel">
+				</li>
+			</ul>
+			
+		</fieldset>
+	</form>
+</div>
+
+<div id="delete_user" class="hidden floater">
+	<form id="delete_user_form" action="/delete" method="post" accept-charset="utf-8">
+		<input type="hidden" name="del_user" value="" id="del_user">
+		<input type="hidden" name="del_user_token" value="" id="del_user_token">
+		<input type="submit" value="Delete &rarr;">
+	</form>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		
+	})
+</script>
 {% endblock %}
+

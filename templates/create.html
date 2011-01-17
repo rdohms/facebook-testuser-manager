@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="s6 centered warning">
+	<p>
+	<img src="/images/{% if error %}error{% else %}ok{% endif %}-48.png" alt="">
+	{% if error %}
+	Failed to create a new Test User, sorry!
+	{% else %}
+	A new Test User (<a href="{{user.login_url}}">{{user.name}}</a>) was created!
+	{% endif %}
+	</p>
+</div>
+{% endblock %}

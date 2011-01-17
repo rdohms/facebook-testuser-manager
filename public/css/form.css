@@ -1,0 +1,66 @@
+
+fieldset{
+	border:solid 1px #DEDEDE;
+	padding: 10px;
+}
+fieldset legend {
+	font-weight:bold; padding: 0 10px; margin-left: 10px;
+}
+
+fieldset ul, fieldset li{
+	border:0; margin:0; padding:0; list-style:none;
+}
+
+fieldset li{
+	clear:both;
+	list-style:none;
+	padding:10px;
+}
+
+fieldset input[type=text]{
+	float:left;
+	width: 250px;
+}
+
+fieldset input[type=file]{
+	float:left;
+	width: 250px;
+}
+
+fieldset select{
+	float:left;
+	width: 250px;
+}
+
+fieldset textarea{
+	float:left;
+	width: 250px;
+}
+
+fieldset label{
+	width:140px;
+	float:left;
+}
+
+fieldset button{ 
+		border:0; margin:0; padding:0;
+		clear:both;
+		width:125px;
+		height:31px;
+		background:#666666 url(img/button.png) no-repeat;
+		text-align:center;
+		line-height:31px;
+		color:#FFFFFF;
+		font-size:11px;
+		font-weight:bold;
+	}
+	
+fieldset .note {
+	float: right;
+	color: #C3C3C3;
+	font-size: 10px;
+}
+
+fieldset .instructions {
+	padding: 10px;
+}
