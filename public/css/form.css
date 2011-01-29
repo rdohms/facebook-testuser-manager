@@ -38,8 +38,9 @@ fieldset textarea{
 }
 
 fieldset label{
-	width:140px;
+	width:200px;
 	float:left;
+	font-weight:bold;
 }
 
 fieldset button{ 

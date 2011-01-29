@@ -3,6 +3,7 @@
 	<head>
 		{% block head %}
 		<title>Facebook TestUser Manager</title>
+		<link rel="stylesheet" href="css/fonts.css" type="text/css">
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/base.css" type="text/css">
 		<link rel="stylesheet" href="css/form.css" type="text/css">
@@ -11,19 +12,31 @@
 		<script src="/js/jquery-1.4.4.js" type="text/javascript"></script>
 		<script src="/js/cmds.js" type="text/javascript"></script>
 		<script src="/js/jquery.tools.min.js" type="text/javascript"></script>
+		<script src="/js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		{% endblock %}
 	</head>
 	<body>
+		<div id="header" class="s12">
+			
+			<div class="s7 gutter">
+				<img id="logo" src="/images/logo-48.png" alt="Facebook Test User Manager">
+				<h1 id="facebook_test_user_manager">Facebook Test User Manager</h1>
+			</div>
+			<div class="s5">
+				
+			</div>
+			<div id="menu" class="s5">
+				<ul>
+					<li><a href="list">List Users</a></li>
+					<li><a href="new">Add New User</a></li>
+					<li><a href="about">About</a></li>
+				</ul>
+			</div>
+		</div>
 		<div id="box" class="s12">
 			<div class="group">
-				<div id="menu" class="s12">
-					<ul>
-						<li><a href="list">List Users</a></li>
-						<li><a href="new">Add New User</a></li>
-						<li><a href="about">About</a></li>
-					</ul>
-				</div>
+
 				<div id="content" class="s12">
 					{% block content %}{% endblock %}
 				</div>

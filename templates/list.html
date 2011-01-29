@@ -7,16 +7,20 @@
 	<ul>
 		{% for user in users %}
 		<li>
-		<p class="cmds"><a href="{{user.login_url}}"><img src="/images/connect.png" alt="User login URL"></a><a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><img src="/images/user_add.png" alt="Add new friend"></a><a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><img src="/images/delete.png" alt="Delete User"></a></p>
-		<p class='name'>{{user.name}}</p>
-		<p class="minor"><strong>ID:</strong> {{user.id}}</p>
-		<p class="minor"><strong>Access Token:</strong> {{user.access_token}}</p>
-		<div class="">
-			<ul class="perm_list">
-				{% for perm in user.perms|keys %}
-				<li>{{perm}}</li>
-				{% endfor %}
-			</ul>
+		<div class="wrapper">
+			<p class="cmds">
+				<a href="{{user.login_url}}"><img src="/images/connect.png" alt="User login URL"></a>
+				<a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><img src="/images/user_add.png" alt="Add new friend"></a>
+				<a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><img src="/images/delete.png" alt="Delete User"></a>
+				<a href="javascript:showToken('{{user.access_token}}');"><img src="/images/token.png" alt="View Access Token"></a>
+			</p>
+		<p class="id">{{user.id}}</p>
+		<p class="token hidden">{{user.access_token}}</p>
+		<div id="user_{{user.id}}_loading" class="holder">
+			<img src="/images/loading-small.gif" alt="">
+		</div>
+		<div id="user_{{user.id}}">
+			
 		</div>
 
 		</li>
@@ -56,9 +60,25 @@
 	</form>
 </div>
 
+<div id="view_token" class="hidden modal token_div">
+	<h2>Access Token</h2>
+	<p id="view_token_p"></p>
+	<p><input type="button" class="close" name="Close" value="Close" id="Close"></p>
+</div>
+
+<script id="userInfoTpl" type="text/x-jquery-tmpl"> 
+	<p class='name'>${name}</p>
+	<div class="perms">
+		<p>Permissions: ${perms}</p></div>
+</script>
+
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
+		{% for user in users %}
+		loadUserInfo({{user.id}},'{{user.access_token}}');
+		{% endfor %}
 		
+		initListOverlays();
 	})
 </script>
 {% endblock %}
