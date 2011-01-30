@@ -43,7 +43,7 @@
 					</select>
 				</li>
 				<li>
-					<input type="submit" value="Add friend &rarr;">
+					<input type="button" class="submit" id="submit-addfriend" value="Add friend &rarr;">
 					<input type="button" class="close" name="Cancel" value="Cancel" id="Cancel">
 				</li>
 			</ul>
@@ -79,6 +79,7 @@
 		{% endfor %}
 		
 		initListOverlays();
+		$('#submit-addfriend').click(function (){ submitAddFriend(); });
 	})
 </script>
 {% endblock %}

@@ -66,6 +66,10 @@ a { color: #3F4959; text-decoration: none;  }
 
 .loading img { margin:0 auto; }
 
+.success {
+	background-color: #FFF;
+}
+
 .about {}
 .about p { padding:10px 0;}
 .about ul {  }

@@ -4,6 +4,8 @@ namespace App\Action;
 
 abstract class Base implements iAction
 {
+    protected $isAjax = false;
+
 	/**
 	* @return \App\Facebook\Client
 	*/
@@ -28,15 +30,27 @@ abstract class Base implements iAction
 		return \Zend_Registry::get('input');
 	}
 
-    public function redirectToError($e)
+    public function redirectToError($e, $isAjax = false)
     {
 
         $error = new ErrorAction();
+        $error->setIsAjax($isAjax);
         $error->setError($e);
         $error->run();
 
-
     }
+
+    public function getIsAjax()
+    {
+        return $this->isAjax;
+    }
+
+    public function setIsAjax($isAjax)
+    {
+        $this->isAjax = $isAjax;
+    }
+
+
 }
 
 ?>

@@ -44,6 +44,12 @@ function closeLoading()
 	$("#loading").data().overlay.close();
 }
 
+function openSuccess(msg)
+{
+		$('#success > .message').html(msg);
+		$("#success").data().overlay.load();
+}
+
 function initListOverlays()
 {
 	$("#view_token").overlay({
@@ -66,6 +72,15 @@ function initListOverlays()
 		closeOnClick: false,
 	});
 	
+	$("#success").overlay({
+
+		mask: {
+			color: '#000',
+			loadSpeed: 200,
+			opacity: 0.7
+		},
+	});
+	
 	$('#add_friend').overlay({
 
 		mask: {
@@ -86,7 +101,28 @@ function loadFriendDropDown()
 		  var token = $(this).find('.token').first().html();
 			var name = $('#user_'+id).find('.name').html();
 			
-			$('#target_user').append('<option value="'+id+'">'+name+'</option>');
-			alert(token);
+			$('#target_user').append('<option value="'+id+" "+token+'">'+name+'</option>');
 	  });
+}
+
+function submitAddFriend()
+{	
+
+	var data = {
+							origin_user: $('#origin_user').val(), 
+							origin_user_token: $('#origin_user_token').val(),
+							target_user: $('#target_user').val()
+						 }
+	$("#add_friend").data().overlay.close();
+	openLoading();
+	
+	$.ajax({ 
+		url: "/ajax-add-friend", 
+		type: "POST",
+		data: data,
+		success: function(response){
+					var r = $.parseJSON(response);
+					openSuccess(r.message);
+	      }});
+	      
 }
