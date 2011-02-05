@@ -1,5 +1,5 @@
 
-html { background: #FFF url('/images/bg.png') repeat-x scroll top left; }
+html { background: #FFF url('../images/bg.png') repeat-x scroll top left; }
 
 body { font-family:Tahoma; font-size:12px; color:#2C2C29; background: #FFF url'/images/bg.png') repeat-x scroll top left; }
 
@@ -28,7 +28,7 @@ div#footer {
 	padding: 10px;
 }
 
-div#menu { margin-top: 30px; float:right; border-bottom: 0px solid #3F4959; background-color:#2D476B; }
+div#menu { margin-top: 28px; float:right; border-bottom: 0px solid #3F4959; background-color:#2D476B; }
 div#menu ul {}
 div#menu ul li { float:left; padding: 5px 10px; }
 div#menu a { color: #FFF; text-decoration: none; }
@@ -58,17 +58,28 @@ a { color: #3F4959; text-decoration: none;  }
 	-webkit-border-radius:10px;
 }
 
+.modal img.btn_close {
+	float: right;
+	margin: -55px -55px 0 0;
+}
+
 .loading {
 	width: 125px;
 	background-color: #FFF;
-	padding: 20px;
+	padding: 25px;
 }
 
 .loading img { margin:0 auto; }
 
-.success {
-	background-color: #FFF;
-}
+.success { background-color: #FFF;	font-size: 12px;	font-weight: bold; }
+.success p.message { padding: 35px 0;	float:left; }
+.success img {	float: left;	padding: 15px; }
+
+.error_modal { background-color: #FFF;	font-size: 12px;	font-weight: bold; }
+.error_modal p.message { padding: 35px 0;	float:left; }
+.error_modal img { float: left;	padding: 15px; }
+
+.error_msg strong { font-weight: bold; }
 
 .about {}
 .about p { padding:10px 0;}
@@ -100,16 +111,16 @@ a { color: #3F4959; text-decoration: none;  }
 .warning img {  padding-right: 10px; vertical-align: middle; }
 .warning p { height: 48px; font-size: 14px; vertical-align: middle;}
 
-#friend-list {
-	margin: 0;
-	padding: 0;
-	line-height: 1.45em;
-}
-#friend-list li {
-	padding: 0px;
-	margin-left: 25px;
-	list-style-image: url("/images/user.png");
-}
-#friend-list li.loading {
-	list-style-image: url();
+#friend-list { margin: 0;	padding: 0;	line-height: 1.45em;}
+#friend-list li {	padding: 0px;	margin-left: 25px; list-style-image: url("../images/user.png"); }
+#friend-list li.loading {	list-style-image: url(); }
+
+.tooltip {
+	display:none;
+	background:transparent url(../images/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;
 }

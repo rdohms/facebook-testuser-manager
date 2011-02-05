@@ -50,6 +50,16 @@ abstract class Base implements iAction
         $this->isAjax = $isAjax;
     }
 
+    protected function checkTokens()
+    {
+        if (!\defined('FACEBOOK_APP_ID') || !\defined('FACEBOOK_APP_SECRET')){
+            $e = new \Exception('App ID and Secret not set, please rename <strong>config.ini.php.sample</strong> to <strong>config.ini.php</strong> and set the App ID and Secret', 400);
+            $this->redirectToError($e);
+            return false;
+        }
+
+        return true;
+    }
 
 }
 

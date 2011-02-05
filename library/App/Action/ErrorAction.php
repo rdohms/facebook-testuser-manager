@@ -8,9 +8,16 @@ class ErrorAction extends Base
 	
 	public function run()
 	{
-        //Render Template
-        $tpl = $this->getTplEngine()->loadTemplate('error.html');
-        $tpl->display(array('error' => $this->error));
+        header("HTTP/1.0 500 Internal Error");
+
+        if ($this->getIsAjax()) {
+            $response = new \App\JsonResponse($this->error->getCode(), $this->error->getMessage());
+            $response->sendOutput();
+        } else {
+            //Render Template
+            $tpl = $this->getTplEngine()->loadTemplate('error.html');
+            $tpl->display(array('error' => $this->error));
+        }
 	}
 	
 	public function setError($e)

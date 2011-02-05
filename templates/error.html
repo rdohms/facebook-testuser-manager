@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1 id="error!">Error!</h1>
-<p>{{error.getMessage}}</p>
+<h1 id="error">Error!</h1>
+<p class="error_msg">{{error.getMessage|raw}}</p>
 {% endblock %}

@@ -22,7 +22,7 @@ class AjaxUserFriendsAction extends Base
             $friends = $fb->api('/me/friends');
 
         } catch (\Exception $e) {
-            $this->redirectToError($e);
+            $this->redirectToError($e, true);
             return;
         }
 

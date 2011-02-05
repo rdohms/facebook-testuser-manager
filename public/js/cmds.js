@@ -1,6 +1,6 @@
 function loadUserInfo(uid, token){
 	$.ajax({ 
-		url: "/ajax-userinfo", 
+		url: "ajax-userinfo", 
 		type: "POST",
 		data: {uid: uid, token: token},
 		success: function(response){
@@ -51,6 +51,12 @@ function openSuccess(msg)
 		$("#success").data().overlay.load();
 }
 
+function openError(msg)
+{
+		$('#error_modal > .message').html(msg);
+		$("#error_modal").data().overlay.load();
+}
+
 function initListOverlays()
 {
 	$("#view_token").overlay({
@@ -82,6 +88,15 @@ function initListOverlays()
 		},
 	});
 	
+	$("#error_modal").overlay({
+
+		mask: {
+			color: '#000',
+			loadSpeed: 200,
+			opacity: 0.7
+		},
+	});
+	
 	$('#add_friend').overlay({
 
 		mask: {
@@ -92,6 +107,11 @@ function initListOverlays()
 		closeOnClick: false,
 	});
 	
+}
+
+function initTooltips()
+{
+	$(".cmds img[alt]").tooltip();
 }
 
 function loadFriendDropDown()
@@ -118,23 +138,28 @@ function submitAddFriend()
 	openLoading();
 	
 	$.ajax({ 
-		url: "/ajax-add-friend", 
+		url: "ajax-add-friend", 
 		type: "POST",
 		data: data,
 		success: function(response){
 					var r = $.parseJSON(response);
 					openSuccess(r.message);
-	      }});
+	      },
+		error: function(response){
+					var r = $.parseJSON(response.responseText);
+					openError(r.message);
+	      }
+			});
 	      
 }
 
 function renderFriendList(uid, token)
 {
 	$('#friend-list').empty();
-	$('#friend-list').append('<li class="loading"><img src="/images/loading-small.gif" alt=""></li>');
+	$('#friend-list').append('<li class="loading"><img src="images/loading-small.gif" alt=""></li>');
 	
 	$.ajax({ 
-		url: "/ajax-user-friends", 
+		url: "ajax-user-friends", 
 		type: "POST",
 		data: {uid: uid, token: token},
 		success: function(response){

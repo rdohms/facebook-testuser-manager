@@ -3,16 +3,19 @@
 	<head>
 		{% block head %}
 		<title>Facebook TestUser Manager</title>
+		
+		<base href="{{ constant('BASE_URL') }}" target="">
+		
 		<link rel="stylesheet" href="css/fonts.css" type="text/css">
 		<link rel="stylesheet" href="css/reset.css" type="text/css">
 		<link rel="stylesheet" href="css/base.css" type="text/css">
 		<link rel="stylesheet" href="css/form.css" type="text/css">
 		<link rel="stylesheet" href="css/site.css" type="text/css">
 		
-		<script src="/js/jquery-1.4.4.js" type="text/javascript"></script>
-		<script src="/js/cmds.js" type="text/javascript"></script>
-		<script src="/js/jquery.tools.min.js" type="text/javascript"></script>
-		<script src="/js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery-1.4.4.js" type="text/javascript"></script>
+		<script src="js/cmds.js" type="text/javascript"></script>
+		<script src="js/jquery.tools.min.js" type="text/javascript"></script>
+		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
 		
 		{% endblock %}
 	</head>
@@ -20,13 +23,13 @@
 		<div id="header" class="s12">
 			
 			<div class="s7 gutter">
-				<img id="logo" src="/images/logo-48.png" alt="Facebook Test User Manager">
-				<h1 id="facebook_test_user_manager">Facebook Test User Manager</h1>
+				<a href="list"><img id="logo" src="images/logo-48.png" alt="Facebook Test User Manager"></a>
+				<a href="list"><h1 id="facebook_test_user_manager">Test User Manager for Facebook</h1></a>
 			</div>
 			<div class="s5">
 				
 			</div>
-			<div id="menu" class="s5">
+			<div id="menu" class="s3">
 				<ul>
 					<li><a href="list">List Users</a></li>
 					<li><a href="new">Add New User</a></li>
@@ -48,10 +51,14 @@
 	    {% endblock %}
 	  </div>
 	<div id="loading" class="loading modal">
-		<img src="/images/loading.gif" alt="Loading...">
+		<img src="images/loading.gif" alt="Loading...">
 	</div>
 	<div id="success" class="success modal">
-		<img src="/images/ok-48.png" width="48" height="48" alt="Ok 48">
+		<img src="images/ok-48.png" width="48" height="48" alt="Ok 48">
+		<p class="message"></p>
+	</div>
+	<div id="error_modal" class="error_modal modal">
+		<img src="images/error-48.png" width="48" height="48" alt="Ok 48">
 		<p class="message"></p>
 	</div>
 	</body>

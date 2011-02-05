@@ -8,30 +8,38 @@ class Application
 	public function __construct()
 	{
 		//Wrap all input in Inspekt
-		$input = \Inspekt::makeSuperCage();  
+		$input = \Inspekt::makeSuperCage();
+        \Zend_Registry::set('input', $input);
 		
 		//Get a Mustache Factory up
 		$tplEngine = new Template\Engine();
+        \Zend_Registry::set('tplengine', $tplEngine);
 		
 		//Singleton our facebook interface
-		$facebook = new Facebook\Client(array(
-		  'appId'  => FACEBOOK_APP_ID,
-		  'secret' => FACEBOOK_APP_SECRET
-		));
+        if (\defined('FACEBOOK_APP_ID') && \defined('FACEBOOK_APP_SECRET')){
+            $facebook = new Facebook\Client(array(
+              'appId'  => FACEBOOK_APP_ID,
+              'secret' => FACEBOOK_APP_SECRET
+            ));
+            \Zend_Registry::set('facebook', $facebook);
+        }
 		
-		//Store all in registry for later use
-		\Zend_Registry::set('tplengine', $tplEngine);
-		\Zend_Registry::set('facebook', $facebook);
-		\Zend_Registry::set('input', $input);
 		
 	}
 	
 	public function run()
 	{
 		try {
-			$actionName = \Zend_Registry::get('input')->server->getRaw('REQUEST_URI');
+			$httpHost = \Zend_Registry::get('input')->server->getRaw('HTTP_HOST');
+			$requestUri = \Zend_Registry::get('input')->server->getRaw('REQUEST_URI');
 
-			$action = $this->getActionClass($actionName);
+            $publicPos = strrpos($requestUri, 'public');
+            $substrLen = ($publicPos !== false)? $publicPos+6 : $publicPos;
+            $path = substr($requestUri, 0, $substrLen );
+
+            \define('BASE_URL', 'http://'.$httpHost.$path.'/' );
+
+			$action = $this->getActionClass($requestUri);
 			$action->run();
 			
 		} catch (\Exception $e) {

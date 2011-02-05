@@ -30,7 +30,7 @@ class AjaxAddFriendAction extends Base
             $resB = $fb->api('/'.$uid_friend.'/friends/'.$uid_user, "POST");
 
         } catch(\Exception $e) {
-            $this->redirectToError($e);
+            $this->redirectToError($e, true);
             return;
         }
 

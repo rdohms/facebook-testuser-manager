@@ -30,7 +30,7 @@ class AjaxUserinfoAction extends Base
             $details['access_token'] = $token;
 
         } catch (\Exception $e) {
-            $this->redirectToError($e);
+            $this->redirectToError($e, true);
             return;
         }
 
