@@ -6,7 +6,7 @@ With the Graph API and OAuth 2.0 Facebook also introduced special test user acco
 
 Installation is very straight forward:
 
-1. Download source code
+1. Download [source code](https://github.com/rdohms/facebook-testuser-manager/archives/master)
 2. Place source code in your local web server document root
 3. [OPTIONAL] Create a local virtualhost, like fum.local (the app can handle not being in root url)
 4. Copy config.ini.php.sample to a config.ini.php file and set App ID and Secret
