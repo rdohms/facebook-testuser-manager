@@ -58,9 +58,9 @@ a { color: #3F4959; text-decoration: none;  }
 	-webkit-border-radius:10px;
 }
 
-.modal img.btn_close {
+.modal .btn_close {
 	float: right;
-	margin: -55px -55px 0 0;
+	margin: -80px -25px 0 0;
 }
 
 .loading {
