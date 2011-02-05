@@ -4,6 +4,8 @@ define('ROOT_PATH', __DIR__ . '/../');
 define('LIB_PATH', ROOT_PATH . 'library/');
 define('TPL_PATH', ROOT_PATH . 'templates/');
 
+define('APP_VERSION', '0.9');
+
 //Define library folders
 $includePaths = array();
 $includePaths[] = LIB_PATH;

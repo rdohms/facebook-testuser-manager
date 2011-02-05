@@ -2,9 +2,19 @@
 
 namespace App;
 
+/**
+ * Handles Application Routing and request processing
+ *
+ * @category FBTUM
+ * @package App
+ */
 class Application
 {
-		
+
+    /**
+     * Constructor
+     * Instantiates all neede libraries and makes them available
+     */
 	public function __construct()
 	{
 		//Wrap all input in Inspekt
@@ -26,7 +36,11 @@ class Application
 		
 		
 	}
-	
+
+    /**
+     * Runs the request.
+     * Finds the requested action and executes it
+     */
 	public function run()
 	{
 		try {
@@ -48,7 +62,13 @@ class Application
 			$action->run();
 		}
 	}
-	
+
+    /**
+     * Extracts the Action Name from a request uri
+     *
+     * @param string $name
+     * @return \App\Action\iAction
+     */
 	private function getActionClass($name)
 	{
 		//Strip rest of url if not in its own VirtualHost
