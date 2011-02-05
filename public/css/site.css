@@ -25,17 +25,13 @@ a { color: #3F4959; text-decoration: none;  }
 
 .modal{display:none; width:400px; border:10px solid #666; border:10px solid rgba(82,82,82,0.698); -moz-border-radius:10px; -webkit-border-radius:10px;}
 .modal .btn_close{float:right;margin:-80px -25px 0 0;}
+.warningbox { background-color: #FFF; background-repeat: no-repeat; background-position: 10px center; font-size: 12px;	font-weight: bold; padding:25px 10px 25px 70px;}
 
 .loading{width:125px;background-color:#FFF;padding:25px;}
 .loading img { margin:0 auto; }
 
-.success { background-color: #FFF;	font-size: 12px;	font-weight: bold; }
-.success p.message { padding: 35px 0;	float:left; }
-.success img {	float: left;	padding: 15px; }
-
-.error_modal { background-color: #FFF;	font-size: 12px;	font-weight: bold; }
-.error_modal p.message { padding: 35px 0;	float:left; }
-.error_modal img { float: left;	padding: 15px; }
+.success { background-image:url(../images/ok-48.png);	 }
+.error_modal { background-image:url(../images/error-48.png); }
 
 .error_msg strong { font-weight: bold; }
 
