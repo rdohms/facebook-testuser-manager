@@ -19,6 +19,7 @@ function showToken(token)
 
 function addFriend(origin_id, access_token)
 {
+	renderFriendList(origin_id, access_token);
 	loadFriendDropDown();
 	$('#origin_user').val(origin_id);
 	$('#origin_user_token').val(access_token);
@@ -125,4 +126,24 @@ function submitAddFriend()
 					openSuccess(r.message);
 	      }});
 	      
+}
+
+function renderFriendList(uid, token)
+{
+	$('#friend-list').empty();
+	$('#friend-list').append('<li class="loading"><img src="/images/loading-small.gif" alt=""></li>');
+	
+	$.ajax({ 
+		url: "/ajax-user-friends", 
+		type: "POST",
+		data: {uid: uid, token: token},
+		success: function(response){
+					var r = $.parseJSON(response);
+					$('#friend-list').empty();
+					
+					$.each(r.data, function(index, value){
+						$('#friend-list').append('<li>'+value.name+'</li>');
+					});
+						
+		}});
 }
