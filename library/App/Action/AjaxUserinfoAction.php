@@ -23,9 +23,14 @@ class AjaxUserinfoAction extends Base
 
             //Get Available perms
             $allPerms = $fb->fql('SELECT '.$fb->getFacebookPermissionList().' FROM permissions WHERE uid = "'.$uid.'"');
-            $perms = implode(', ',  \array_keys(\array_filter(array_shift($allPerms))));
-            $details['perms'] = ($perms == '')? 'none defined':$perms;
 
+            if (\is_array($allPerms) && count($allPerms) > 0){
+                $perms = implode(', ',  \array_keys(\array_filter(array_shift($allPerms))));
+                $details['perms'] = ($perms == '')? 'none defined':$perms;
+            } else {
+                $details['perms'] = 'none defined';
+            }
+            
             $details['uid'] = $uid;
             $details['access_token'] = $token;
 

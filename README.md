@@ -15,6 +15,7 @@ Installation is very straight forward:
 ## Pre-Requisites
 
 * PHP 5.3
+* Apache with mod_rewrite
 
 ## About Author
 
