@@ -10,6 +10,11 @@ function loadUserInfo(uid, token) {
             var r = $.parseJSON(response);
             $('#user_' + r.data.uid + '_loading').hide();
             $('#userInfoTpl').tmpl(r.data).appendTo('#user_' + r.data.uid)
+        },
+        error: function(response) {
+          var r = $.parseJSON(response.responseText);
+          $('#user_' + uid + '_loading').hide();
+          $('#user_' + uid).html('Error: ' + r.message)
         }
     });
 }
