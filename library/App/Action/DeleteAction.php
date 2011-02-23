@@ -11,7 +11,7 @@ class DeleteAction extends Base
             $fb = $this->getFacebookClient();
 
             //Get Posted Data
-            $uid = $this->getInspekt()->post->getInt('del_user');
+            $uid = $this->getInspekt()->post->getAlnum('del_user');
             $token = $this->getInspekt()->post->getRaw('del_user_token');
 
             //API call

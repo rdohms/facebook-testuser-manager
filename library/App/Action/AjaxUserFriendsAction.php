@@ -14,7 +14,7 @@ class AjaxUserFriendsAction extends Base
             $fb = $this->getFacebookClient();
 
             //Get Input Params
-            $uid = $this->getInspekt()->post->getInt('uid');
+            $uid = $this->getInspekt()->post->getAlnum('uid');
             $token = $this->getInspekt()->post->getRaw('token');
 
             //Get extra data
