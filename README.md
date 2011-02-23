@@ -16,6 +16,8 @@ Installation is very straight forward:
 
 * PHP 5.3
 * Apache with mod_rewrite
+* Facebook PHP SDK Requisites:
+    * [PHP Curl](http://php.net/manual/en/book.curl.php)
 
 ## About Author
 
