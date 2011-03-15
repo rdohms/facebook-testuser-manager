@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 id="configuring_the_app">Configuring the App</h1>
+
+<div class="config">
+	<p>In order to use this application, we need to have your App ID and Secret to make call in your behalf to Facebook. To make this possible you have 2 options depending on where you are:</p>
+
+	<p class="option"><strong>If you are on your local environment</strong></p>
+	<p>In this case you have the choice of setting the configuration in a local file, and never worrying about this again. The downside is you will only be able to access <strong>one</strong> FB App this way, having to alter this config file for every switch</p>
+
+	<p class="instruction"><span>Do this:</span> Rename <strong>config.ini.php.sample</strong> to <strong>config.ini.php</strong> and set the App ID and Secret in there</p>
+
+	<p class="option"><strong>If you are using a hosted version</strong> or want to manage multiple FB Apps</p>
+
+	<p>In this case you can use our sesion manager to define a App ID and Secret in the current session and switch around as needed for other apps.</p>
+
+	<p class="instruction"><span>Do this:</span> <a href="set-session">Click on this link</a> or the "Set/Unset Session Vars" link above</p>
+</div>
+{% endblock %}

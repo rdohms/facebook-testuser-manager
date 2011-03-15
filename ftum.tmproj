@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>public/css/site.css</string>
+	<string>README.md</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -26,9 +26,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>93</integer>
+				<integer>26</integer>
 				<key>line</key>
-				<integer>8</integer>
+				<integer>33</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -98,14 +98,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>165</integer>
+				<integer>14</integer>
 				<key>line</key>
-				<integer>27</integer>
+				<integer>68</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>38</integer>
 		</dict>
 		<key>public/js/cmds.js</key>
 		<dict>
@@ -228,9 +228,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>58</integer>
+				<integer>53</integer>
 				<key>line</key>
-				<integer>58</integer>
+				<integer>35</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -265,6 +265,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>templates/set_session.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>75</integer>
+				<key>line</key>
+				<integer>5</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
@@ -272,13 +286,13 @@
 		<string>templates/list.html</string>
 		<string>public/js/cmds.js</string>
 		<string>public/css/site.css</string>
+		<string>templates/set_session.html</string>
 		<string>README.md</string>
 		<string>templates/layout.html</string>
 		<string>templates/error.html</string>
 		<string>public/js/jquery.tools.min.js</string>
 		<string>templates/create.html</string>
 		<string>templates/add_friend.html</string>
-		<string>config/config.ini.php</string>
 		<string>public/css/base.css</string>
 		<string>public/css/form.css</string>
 		<string>templates/new.html</string>
@@ -286,6 +300,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{203, 4}, {1077, 774}}</string>
+	<string>{{408, -796}, {1077, 796}}</string>
 </dict>
 </plist>

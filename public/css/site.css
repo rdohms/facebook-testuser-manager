@@ -74,6 +74,13 @@ a { color: #3F4959; text-decoration: none;  }
 
 .tooltip{display:none;background:transparent url(../images/tooltip/black_arrow.png);font-size:12px;height:70px;width:160px;padding:25px;color:#fff;}
 
+.config {}
+.config .option { font-size: 16px; padding: 15px 0; }
+.config .instruction { padding: 5px; margin: 10px 0; background-color: #FFE28D;}
+.config .instruction span { font-weight: bold;}
+.config strong { font-weight:bold; }
+.config .instruction a { color: #E39719; text-decoration: underline; }
+
 #tokenerr { margin: 0;	padding: 0;	line-height: 1.8em; }
 #tokenerr li { padding: 0px;	margin-left: 25px; list-style-type: circle; }
 #tokenerr li strong { font-weight: bold; }
