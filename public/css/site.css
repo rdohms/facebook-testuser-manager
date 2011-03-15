@@ -65,8 +65,15 @@ a { color: #3F4959; text-decoration: none;  }
 .warning img {  padding-right: 10px; vertical-align: middle; }
 .warning p { height: 48px; font-size: 14px; vertical-align: middle;}
 
+.warning.message { background-color: #A9DDA0; color: #028300; font-weight: bold; }
+.warning.error { background-color: #E37B68; color: #990511; font-weight: bold; }
+
 #friend-list { margin: 0;	padding: 0;	line-height: 1.45em;}
 #friend-list li {	padding: 0px;	margin-left: 25px; list-style-image: url("../images/user.png"); }
 #friend-list li.loading {	list-style-image: url(); }
 
 .tooltip{display:none;background:transparent url(../images/tooltip/black_arrow.png);font-size:12px;height:70px;width:160px;padding:25px;color:#fff;}
+
+#tokenerr { margin: 0;	padding: 0;	line-height: 1.8em; }
+#tokenerr li { padding: 0px;	margin-left: 25px; list-style-type: circle; }
+#tokenerr li strong { font-weight: bold; }

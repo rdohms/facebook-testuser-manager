@@ -74,11 +74,15 @@ abstract class Base implements iAction
     protected function checkTokens()
     {
         if (!\defined('FACEBOOK_APP_ID') || !\defined('FACEBOOK_APP_SECRET')){
-            $e = new \Exception('App ID and Secret not set, please rename <strong>config.ini.php.sample</strong> to <strong>config.ini.php</strong> and set the App ID and Secret', 400);
+            $e = new \Exception('App ID and Secret not set, please choose an option: <br>
+                <ul id="tokenerr">
+                    <li>rename <strong>config.ini.php.sample</strong> to <strong>config.ini.php</strong> and set the App ID and Secret</li>
+                    <li><a href="set-session">Click here</a> to set App Id and Secret for this session</li>
+                </ul>', 400);
             $this->redirectToError($e);
             return false;
         }
-
+        
         return true;
     }
 

@@ -17,6 +17,8 @@ class Application
      */
 	public function __construct()
 	{
+        $this->loadSessionTokens();
+        
 		//Wrap all input in Inspekt
 		$input = \Inspekt::makeSuperCage();
         \Zend_Registry::set('input', $input);
@@ -99,6 +101,22 @@ class Application
 		return new $class;
 		
 	}
+    
+    /**
+     * Loads Tokens if they are set in the session
+     */
+    private function loadSessionTokens()
+    {
+        if (\defined('USE_SESSION') && \USE_SESSION){
+            if (!\defined('FACEBOOK_APP_ID') && isset($_SESSION['FACEBOOK_APP_ID'])){
+                \define('FACEBOOK_APP_ID', $_SESSION['FACEBOOK_APP_ID']);
+            }
+            
+            if (!\defined('FACEBOOK_APP_SECRET') && isset($_SESSION['FACEBOOK_APP_SECRET'])){
+                \define('FACEBOOK_APP_SECRET', $_SESSION['FACEBOOK_APP_SECRET']);
+            }
+        }
+    }
 }
 
 ?>

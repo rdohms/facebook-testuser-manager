@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 id="create_new_test_user">Define App ID and Secret</h1>
+
+{% if sessionAppId != none and sessionAppId != false and noSession == false %}
+<p class="warning message">This app is currently set to use this App ID: {{sessionAppId}} </p>
+{% endif %}
+
+{% if noSession %}
+<p class="warning error">App is configured to not use session vars, please remove config.ini.php file</p>
+{% endif %}
+
+<form action="set-session" method="post" accept-charset="utf-8">
+	<fieldset id="link" class="">
+		<p class="instructions">This will define an App ID and Secret in the session so you don' need to hard code it, thus being able to manage multiple applications.</p>
+		<ul>	
+			<li>
+				<label for="fb_app_id">Application ID</label><input type="text" name="fb_app_id" value="{{appId}}" id="fb_app_id">
+			</li>
+			<li>
+				<label for="fb_app_secret">Application Secret</label><input type="text" name="fb_app_secret" value="{{appSecret}}" id="fb_app_secret">	
+			</li>
+			<li><input type="submit" value="Continue &rarr;"></li>
+			<li><input type="submit" value="Clear current App ID" name="action"></li>
+		</ul>
+	</fieldset>
+</form>
+{% endblock %}
