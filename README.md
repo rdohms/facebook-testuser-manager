@@ -9,8 +9,9 @@ Installation is very straight forward:
 1. Download [source code](https://github.com/rdohms/facebook-testuser-manager/archives/master)
 2. Place source code in your local web server document root
 3. [OPTIONAL] Create a local virtualhost, like fum.local (the app can handle not being in root url)
-4. Copy config.ini.php.sample to a config.ini.php file and set App ID and Secret
+4. [OPTIONAL] Copy config.ini.php.sample to a config.ini.php file and set App ID and Secret
 5. Access the User Test Manager folder
+6. [OPTIONAL] If the config file was not set, you can click on "Set/Unset Session Vars" to set App ID/Secret via session
 
 ## Pre-Requisites
 
@@ -18,6 +19,22 @@ Installation is very straight forward:
 * Apache with mod_rewrite
 * Facebook PHP SDK Requisites:
     * [PHP Curl](http://php.net/manual/en/book.curl.php)
+
+## Changelog
+
+### 0.10
+* GH-10: Added ability to set App ID/Secret via session, allowing fast switch between apps and hosted version
+
+### 0.9.4
+* GH-11: Fixed bug with 32 bits systems and UIDs
+* GH-12: README updates
+
+### 0.9.3
+* Better error handling
+* Image referencing issues
+
+### 0.9.2
+* GH-9: Fixing error with invalid responses from facebook
 
 ## About Author
 
