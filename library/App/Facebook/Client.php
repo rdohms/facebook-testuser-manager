@@ -92,7 +92,7 @@ class Client extends \Facebook
         */
 
         return 'read_stream,manage_friendlists,read_mailbox,publish_checkins,
-            status_update,photo_upload,video_upload,sms,create_event,rsvp_event,
+            status_update,photo_upload,video_upload,create_event,rsvp_event,
             offline_access,email,xmpp_login,create_note,share_item,
             export_stream,publish_stream,ads_management,read_insights,
             read_requests,read_friendlists,manage_pages,physical_login,
