@@ -22,6 +22,12 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.10.2
+* Removing deprecated permission 'sms' which caused crash
+
+### 0.10.1
+* Making configuration page look like configuration and not like a fatal error
+
 ### 0.10
 * GH-10: Added ability to set App ID/Secret via session, allowing fast switch between apps and hosted version
 
