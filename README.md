@@ -22,6 +22,9 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.10.3
+* Removing deprecated permission 'physical_login'
+
 ### 0.10.2
 * Removing deprecated permission 'sms' which caused crash
 
