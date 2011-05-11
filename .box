@@ -1,0 +1,23 @@
+################################################
+## WEB SPECIFIC SETTINGS
+################################################
+document_root: public/
+index_list: [index.html, index.php]
+default_gateway: index.php 
+ 
+################################################
+## PHP SPECIFIC SETTINGS
+################################################
+php_version: 5.3.5
+php_extensions: [curl]
+php_error_reporting: 'E_ALL'
+php_display_errors: On
+php_short_open_tag: On
+php_default_mimetype: text/html
+php_date_timezone: US/central
+php_max_execution_time: 30
+php_max_input_time: 60
+php_post_max_size: 8M
+php_file_uploads: On
+php_upload_max_filesize: 2M
+php_max_file_uploads: 20
