@@ -84,3 +84,13 @@ a { color: #3F4959; text-decoration: none;  }
 #tokenerr { margin: 0;	padding: 0;	line-height: 1.8em; }
 #tokenerr li { padding: 0px;	margin-left: 25px; list-style-type: circle; }
 #tokenerr li strong { font-weight: bold; }
+
+#user-created-info {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#user-created-info li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
