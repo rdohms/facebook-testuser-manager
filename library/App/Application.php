@@ -115,8 +115,10 @@ class Application
             if (!\defined('FACEBOOK_APP_SECRET') && isset($_SESSION['FACEBOOK_APP_SECRET'])){
                 \define('FACEBOOK_APP_SECRET', $_SESSION['FACEBOOK_APP_SECRET']);
             }
+
+            if (!\defined('FACEBOOK_APP_DEFAULT_PERMISSIONS') && isset($_SESSION['FACEBOOK_APP_DEFAULT_PERMISSIONS'])){
+                \define('FACEBOOK_APP_DEFAULT_PERMISSIONS', $_SESSION['FACEBOOK_APP_DEFAULT_PERMISSIONS']);
+            }
         }
     }
 }
-
-?>

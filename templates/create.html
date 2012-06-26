@@ -2,13 +2,27 @@
 
 {% block content %}
 <div class="s6 centered warning">
-	<p>
-	<img src="images/{% if error %}error{% else %}ok{% endif %}-48.png" alt="">
-	{% if error %}
-	Failed to create a new Test User, sorry!
+    {% if error %}
+        <p>
+            <img src="images/error-48.png" alt="Failed to create a new test user, sorry!">
+            Failed to create a new test user, sorry!
+        </p>
 	{% else %}
-	A new Test User (<a href="{{user.login_url}}">{{user.name}}</a>) was created!
-	{% endif %}
+
+        <p>
+            <img src="images/ok-48.png" alt="Failed to create a new test user, sorry!">
+            A new test user was created successfully!
+        </p>
+        <ul id="user-created-info">
+            {% if user.name %}
+            <li><strong>Name:</strong> {{ user.name }}</li>
+            {% endif %}
+            <li><strong>Email:</strong> {{ user.email }}</li>
+            <li><strong>Password:</strong> {{ user.password }}</li>
+            <li><strong>URL Login:</strong> <a href="{{ user.login_url }}">{{ user.login_url }}</a></li>
+        </ul>
+        <p>IMPORTANT: This is the only place where you can see the password for this user.</p>
+    {% endif %}
 	</p>
 </div>
 {% endblock %}

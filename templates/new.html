@@ -7,7 +7,7 @@
 		<p class="instructions">To create a new Test User, valid only for your application and controllable by any developer of this application, fill in the form below. If you want more information on Test Users, view the <a href="http://developers.facebook.com/docs/test_users">documentation</a>.</p>
 		<ul>	
 			<li>
-				<label for="permissions">Extended permissions</label><textarea name="permissions" id="permissions" cols="120" rows="4"></textarea>
+				<label for="permissions">Extended permissions</label><textarea name="permissions" id="permissions" cols="120" rows="4">{% if permissions %}{{ permissions }}{% endif %}</textarea>
 				<span class="note">these are the <a href="http://developers.facebook.com/docs/authentication/permissions">extended permissions</a> you want the user to give the application</span>
 			</li>
 			<li>
