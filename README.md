@@ -22,6 +22,12 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.11
+* Using batch request in list page
+* Update of facebook.php library
+* Adding name when creating test user
+* Name of app added in page header
+
 ### 0.10.3
 * Removing deprecated permission 'physical_login'
 
