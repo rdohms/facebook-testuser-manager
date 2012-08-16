@@ -57,6 +57,6 @@ Installation is very straight forward:
 
 Currently he works for MIH SWAT Team, a group of experts that provides technical knowledge to the MIH group as well as working on R&D in search of the new and exciting niches of the web. His role as a Senior PHP Developer is to code, train and aid other companies and to have fun doing so.
 
-** About Author of Improvements
+## About Author of Improvements
 
-Pawel 'lord_t' Maruszczyk is a social integration ninja from the Upper Silesia (Poland). He works for Can't Stop Games as JavaScript/PHP programmer.
+**Pawel 'lord_t' Maruszczyk** is a social integration ninja from the Upper Silesia (Poland). He works for Can't Stop Games as JavaScript/PHP programmer.
