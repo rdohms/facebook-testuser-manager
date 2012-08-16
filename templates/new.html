@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends parent ? parent : "empty.html" %}
 
 {% block content %}
 <h1 id="create_new_test_user">Create new test user</h1>
@@ -6,6 +6,9 @@
 	<fieldset id="link" class="">
 		<p class="instructions">To create a new Test User, valid only for your application and controllable by any developer of this application, fill in the form below. If you want more information on Test Users, view the <a href="http://developers.facebook.com/docs/test_users">documentation</a>.</p>
 		<ul>	
+			<li>
+				<label for="name">Name (optional)</label><input type="text" name="name" id="name" />
+			</li>
 			<li>
 				<label for="permissions">Extended permissions</label><textarea name="permissions" id="permissions" cols="120" rows="4"></textarea>
 				<span class="note">these are the <a href="http://developers.facebook.com/docs/authentication/permissions">extended permissions</a> you want the user to give the application</span>

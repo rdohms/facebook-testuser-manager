@@ -9,7 +9,7 @@ class AjaxUserinfoAction extends Base
 	{
 
 		try{
-            
+
             //Get list of users
             $fb = $this->getFacebookClient();
 
@@ -30,7 +30,7 @@ class AjaxUserinfoAction extends Base
             } else {
                 $details['perms'] = 'none defined';
             }
-            
+
             $details['uid'] = $uid;
             $details['access_token'] = $token;
 

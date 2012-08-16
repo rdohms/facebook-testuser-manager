@@ -19,6 +19,83 @@ function loadUserInfo(uid, token) {
     });
 }
 
+function loadUsersInfo(objects) {
+    
+    var package = [],
+        batchAmount = 10;
+    for (var i = 0, ci = objects.length; i < ci; ++i) {
+    
+        package.push(objects[i]);    
+        
+        if (
+            (i % batchAmount == 0 && i > 0) ||
+            ((i + 1) == ci)
+        ) {
+            
+            (function(clousurePackage) {
+                
+                return function() {
+                    
+                    $.ajax({
+                        url: "ajax-userinfo-batch",
+                        type: "POST",
+                        data: {
+                            package: package
+                        },
+                        success: function (response) {
+                            
+                            var r = $.parseJSON(response);
+                            
+                            if (r.data) {
+                                
+                                for (var i = 0, ci = r.data.length; i < ci; ++i) {
+                                    
+                                    var single = r.data[i]; 
+                                    $('#user_' + single.uid + '_loading').hide();
+                                    $('#userInfoTpl').tmpl(single).appendTo('#user_' + single.uid);
+                                    
+                                }
+                                
+                            }
+                            
+                        },
+                        error: function (response) {
+                            
+                            var r = $.parseJSON(response.responseText);
+                          
+                            for (var i = 0, ci = clousurePackage.length; i < ci; ++i) {
+                                
+                                var single = clousurePackage[i];
+                                
+                                if (!r) {
+                                    
+                                    r = {
+                                        message: "Request to server failed"
+                                    };
+                                    
+                                }
+                                
+                                $('#user_' + single.id + '_loading').hide();
+                                $('#user_' + single.id).html('Error: ' + r.message );
+                                
+                            }
+                          
+                        }
+                    
+                    });
+                    
+                };
+           
+            })(package)();
+        
+            package = [];
+            
+        }// /if
+        
+    }// /for
+    
+}// /loadUsersInfo
+
 function showToken(token)
  {
     $('#view_token_p').html(token);
@@ -29,7 +106,7 @@ function showToken(token)
 function addFriend(origin_id, access_token)
  {
     renderFriendList(origin_id, access_token);
-    loadFriendDropDown();
+    loadFriendDropDown(origin_id);
     $('#origin_user').val(origin_id);
     $('#origin_user_token').val(access_token);
     $("#add_friend").data().overlay.load();
@@ -123,15 +200,19 @@ function initTooltips()
     $(".cmds img[alt]").tooltip();
 }
 
-function loadFriendDropDown()
+function loadFriendDropDown(user_id)
  {
     $('#target_user').empty();
     $('.user_list ul').children('li').each(function(index) {
-        var id = $(this).find('.id').first().html();
-        var token = $(this).find('.token').first().html();
-        var name = $('#user_' + id).find('.name').html();
+        
+        var id      = $(this).find('.id').first().html(),
+            token   = $(this).find('.token').first().html(),
+            name    = $('#user_' + id).find('.name').html();
 
-        $('#target_user').append('<option value="' + id + " " + token + '">' + name + '</option>');
+        if (user_id != id) {
+            $('#target_user').append('<option value="' + id + " " + token + '">' + name + '</option>');
+        }
+
     });
 }
 
@@ -186,3 +267,42 @@ function renderFriendList(uid, token)
         }
     });
 }
+
+function overrideAddNewUser() {
+    
+    $('#menu a[href="new"]').click(function(e) {
+        
+        $('.listNewuser').removeClass('hidden');
+        e.preventDefault();
+        
+    });
+    
+}
+
+function getAndReplaceAppName(appid) {
+    
+    $.ajax({
+        url: "http://graph.facebook.com/" + appid,
+        dataType: "json",
+        type: "GET",
+        success: function(r) {
+            if (r.name) {
+                
+                var tit = $('title');
+                tit.text(r.name + ' - ' + tit.text());
+                $('#facebook_app_name')
+                    .removeClass('loading')
+                    .text(r.name)
+                    .css('background-image','url(' + r.icon_url + ')')
+                
+            }
+            
+        },
+        error: function(response) {
+            var r = $.parseJSON(response.responseText);
+        }
+    });
+    
+}
+
+

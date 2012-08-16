@@ -25,6 +25,7 @@
 			<div class="s7 gutter">
 				<a href="list"><img id="logo" src="images/logo-48.png" alt="Facebook Test User Manager"></a>
 				<a href="list"><h1 id="facebook_test_user_manager">Test User Manager for Facebook</h1></a>
+				<h2 id="facebook_app_name" class="loading"></h2>
 			</div>
 			<div class="s3">
 				
@@ -40,7 +41,6 @@
 		</div>
 		<div id="box" class="s12">
 			<div class="group">
-
 				<div id="content" class="s12">
 					{% block content %}{% endblock %}
 				</div>
@@ -48,7 +48,7 @@
 		</div>
 		<div id="footer" class="s12">
 	    {% block footer %}
-	      &copy; Copyright 2011 by <a href="http://doh.ms/">Rafael Dohms - DMS Systems</a> <strong class="version">v{{ constant('APP_VERSION') }}</strong>
+	      &copy; Copyright 2011 by <a href="http://doh.ms/">Rafael Dohms - DMS Systems</a> Improvements by <a href="http://hrabstwo.net/">Pawel 'lord_t' Maruszczyk</a> <strong class="version">v{{ constant('APP_VERSION') }}</strong>
 	    {% endblock %}
 	  </div>
 	<div id="loading" class="loading modal">
@@ -60,5 +60,12 @@
 	<div id="error_modal" class="error_modal modal warningbox">
 		<p class="message"></p>
 	</div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            getAndReplaceAppName("{{FB_APP_ID}}");
+            
+        });
+    </script>
 	</body>
 </html>
