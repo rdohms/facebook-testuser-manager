@@ -279,29 +279,37 @@ function overrideAddNewUser() {
     
 }
 
+function noName() {
+    $('#facebook_app_name').removeClass('loading');
+}
+
 function getAndReplaceAppName(appid) {
     
     $.ajax({
-        url: "http://graph.facebook.com/" + appid,
+        url: "ajax-app-name",
         dataType: "json",
         type: "GET",
         success: function(r) {
-            if (r.name) {
+
+            if (r.data.name) {
                 
                 var tit = $('title');
-                tit.text(r.name + ' - ' + tit.text());
+                tit.text(r.data.name + ' - ' + tit.text());
                 $('#facebook_app_name')
                     .removeClass('loading')
-                    .text(r.name)
-                    .css('background-image','url(' + r.icon_url + ')')
+                    .text(r.data.name)
+                    .css('background-image','url(' + r.data.icon_url + ')')
                 
+            } else {
+                noName();
             }
             
         },
         error: function(response) {
-            var r = $.parseJSON(response.responseText);
+            noName();
         }
     });
+
     
 }
 
