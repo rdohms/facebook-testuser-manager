@@ -1,29 +1,40 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1 id="user_list">Existing Test Users</h1>
 
+<div class="listNewuser hidden">
+{% include newuser %}
+</div>
+<h1 id="user_list">Existing Test Users</h1>
+<input type="text" class="filter_user" onkeyup="filterUsers(this.value)" placeholder="Filter users"/>
+<div class="clr"></div>
 <div class="user_list">
 	<ul>
 		{% for user in users %}
-		<li>
-		<div class="wrapper">
-			<p class="cmds">
-				<a href="{{user.login_url}}"><img src="images/connect.png" alt="User login URL" title="Click here to login with this user on facebook."></a>
-				<a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><img src="images/user_add.png" alt="Add new friend"  title="Click here to add a new friend to this user and see existing friends."></a>
-				<a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><img src="images/delete.png" alt="Delete User"  title="Click here to remove this user."></a>
-				<a href="javascript:showToken('{{user.access_token}}');"><img src="images/token.png" alt="View Access Token" title="Click here to view this user's access token."></a>
-			</p>
-		<p class="id">{{user.id}}</p>
-		<p class="token hidden">{{user.access_token}}</p>
-		<div id="user_{{user.id}}_loading" class="holder">
-			<img src="images/loading-small.gif" alt="">
-		</div>
-		<div id="user_{{user.id}}">
-			
-		</div>
+        
+            {% if loop.index0 is odd %}
+	       	<li>
+    		{% else %}
+            <li class="even">
+            {% endif %}
+		    
+    		<div class="wrapper">
+    			<div class="cmds"><!--
+    				--><a href="{{user.login_url}}"><div class="cmndBorder log"><img src="images/connect.png" alt="Log in as user" title="Click here to login with this user on facebook." ></div></a><!-- 
+    				--><a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><div class="cmndBorder add"><img src="images/user_add.png" alt="Add new friend"  title="Click here to add a new friend to this user and see existing friends."></div></a><!-- 
+    				--><a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><div class="cmndBorder del"><img src="images/delete.png" alt="Delete user"  title="Click here to remove this user."></div></a><!-- 
+    				--><a href="javascript:showToken('{{user.access_token}}');"><div class="cmndBorder tok"><img src="images/token.png" alt="View access token" title="Click here to view this user's access token."></div></a><!-- 
+                    --><a href="javascript:changeName('{{user.id}}');"><div class="cmndBorder chn"><img src="images/rename.png" alt="Change name" title="Click here to change user's name."></div></a>
+    			</div>
+    		<div id="user_{{user.id}}">
+    			<p class="id">{{user.id}}</p>
+    		</div>
+    		<p class="token hidden">{{user.access_token}}</p>
+    		<div id="user_{{user.id}}_loading" class="holder">
+    			<img src="images/loading-small.gif" alt="">
+    		</div>
 
-		</li>
+            </li>
 		{% endfor %}
 	</ul>
 </div>
@@ -81,12 +92,20 @@
 	</div>
 </script>
 
+<div class="invisible"><img src="images/tooltip/black_arrow.png" alt=""/></div>
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
-		{% for user in users %}
-		loadUserInfo({{user.id}},'{{user.access_token}}');
+        var users = [
+        {% for user in users %}
+		  {id:"{{user.id}}",access_token:"{{user.access_token}}"},
 		{% endfor %}
-		
+		  false
+        ];
+        users.pop(); //remove ending false 
+        
+        loadUsersInfo(users);
+        
+        overrideAddNewUser();
 		initListOverlays();
 		initTooltips();
 		$('#submit-addfriend').click(function (){ submitAddFriend(); });

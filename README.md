@@ -22,6 +22,18 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.11.2
+* Filter users by name in list view
+
+### 0.11.1
+* Changing name of user
+
+### 0.11
+* Using batch request in list page
+* Update of facebook.php library
+* Adding name when creating test user
+* Name of app added in page header
+
 ### 0.10.3
 * Removing deprecated permission 'physical_login'
 
@@ -50,3 +62,7 @@ Installation is very straight forward:
 **Rafael Dohms** is a PHP Evangelist in Brazil and a very active member of the PHP Community. He helped found two PHP User Groups over the years and currently shares the lead of PHPSP. Developer, gamer and lover of code he also hosts Brazil’s first PHP Podcast: PHPSPCast. 
 
 Currently he works for MIH SWAT Team, a group of experts that provides technical knowledge to the MIH group as well as working on R&D in search of the new and exciting niches of the web. His role as a Senior PHP Developer is to code, train and aid other companies and to have fun doing so.
+
+## About Author of Improvements
+
+**Pawel 'lord_t' Maruszczyk** is a social integration ninja from the Upper Silesia (Poland). He works for Can't Stop Games as JavaScript/PHP programmer.

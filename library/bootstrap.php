@@ -1,11 +1,10 @@
 <?php
-session_start();
 
 define('ROOT_PATH', __DIR__ . '/../');
 define('LIB_PATH', ROOT_PATH . 'library/');
 define('TPL_PATH', ROOT_PATH . 'templates/');
 
-define('APP_VERSION', '0.10.3');
+define('APP_VERSION', '0.11.2');
 
 //Define library folders
 $includePaths = array();
@@ -16,7 +15,7 @@ set_include_path( get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, 
 //Load Facebook App Config or trigger Session
 if (file_exists(ROOT_PATH . 'config/config.ini.php')){
     require_once ROOT_PATH . 'config/config.ini.php';
-    
+
     if (!defined('FACEBOOK_APP_ID')){
         define('USE_SESSION', true);
     } else {
@@ -24,6 +23,10 @@ if (file_exists(ROOT_PATH . 'config/config.ini.php')){
     }
 } else {
     define('USE_SESSION', true);
+}
+
+if (\defined('USE_SESSION') && \USE_SESSION) {
+    session_start();
 }
 
 //Include basic files

@@ -76,7 +76,7 @@ class Client extends \Facebook
      *
      * @todo get this list from facebook they are able to filter valid/invalid
      * permissions no longer in the permisssions table
-     * 
+     *
      * @return string
      */
     public function getFacebookPermissionList()
@@ -91,24 +91,33 @@ class Client extends \Facebook
         return $this->permissionList;
         */
 
-        return 'read_stream,manage_friendlists,read_mailbox,publish_checkins,
-            status_update,photo_upload,video_upload,create_event,rsvp_event,
-            offline_access,email,xmpp_login,create_note,share_item,
-            export_stream,publish_stream,ads_management,read_insights,
-            read_requests,read_friendlists,manage_pages,
-            user_birthday,friends_birthday,user_religion_politics,
-            friends_religion_politics,user_relationships,friends_relationships,
-            user_relationship_details,friends_relationship_details,
-            user_hometown,friends_hometown,user_location,friends_location,
-            user_likes,friends_likes,user_activities,friends_activities,
-            user_interests,friends_interests,user_education_history,
-            friends_education_history,user_work_history,friends_work_history,
-            user_online_presence,friends_online_presence,user_website,
-            friends_website,user_groups,friends_groups,user_events,
-            friends_events,user_photos,friends_photos,user_videos,
-            friends_videos,user_photo_video_tags,friends_photo_video_tags,
-            user_notes,friends_notes,user_checkins,friends_checkins,
-            user_about_me,friends_about_me,user_status,friends_status';
+        $perms = array(
+            'read_stream','manage_friendlists','read_mailbox','publish_checkins',
+            'status_update','photo_upload','video_upload','create_event','rsvp_event',
+            'offline_access','email','xmpp_login','create_note','share_item',
+            'export_stream','publish_stream','ads_management','read_insights',
+            'read_requests','read_friendlists','manage_pages',
+            'user_birthday','friends_birthday','user_religion_politics',
+            'friends_religion_politics','user_relationships','friends_relationships',
+            'user_relationship_details','friends_relationship_details',
+            'user_hometown','friends_hometown','user_location',
+            'friends_location','user_likes','friends_likes','user_activities',
+            'friends_activities','user_interests','friends_interests',
+            'user_education_history','friends_education_history','user_work_history',
+            'friends_work_history','user_online_presence','friends_online_presence',
+            'user_website','friends_website','user_groups',
+            'friends_groups','user_events',' friends_events',
+            'user_photos','friends_photos','user_videos',
+            'friends_videos','user_photo_video_tags','friends_photo_video_tags',
+            'user_notes','friends_notes','user_checkins',
+            'friends_checkins','user_about_me','friends_about_me',
+            'user_status','friends_status'
+        );
+
+        return implode(',', $perms);
+
     }
+
 }
-?>
+
+

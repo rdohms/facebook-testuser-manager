@@ -17,26 +17,32 @@ class Application
      */
 	public function __construct()
 	{
+
         $this->loadSessionTokens();
-        
+
 		//Wrap all input in Inspekt
 		$input = \Inspekt::makeSuperCage();
         \Zend_Registry::set('input', $input);
-		
+
 		//Get a Mustache Factory up
 		$tplEngine = new Template\Engine();
         \Zend_Registry::set('tplengine', $tplEngine);
-		
+
 		//Singleton our facebook interface
         if (\defined('FACEBOOK_APP_ID') && \defined('FACEBOOK_APP_SECRET')){
+
             $facebook = new Facebook\Client(array(
               'appId'  => FACEBOOK_APP_ID,
               'secret' => FACEBOOK_APP_SECRET
             ));
+
             \Zend_Registry::set('facebook', $facebook);
+
+            $tplEngine->addGlobal('FB_APP_ID', FACEBOOK_APP_ID);
+
         }
-		
-		
+
+
 	}
 
     /**
@@ -57,7 +63,7 @@ class Application
 
 			$action = $this->getActionClass($requestUri);
 			$action->run();
-			
+
 		} catch (\Exception $e) {
 			$action = new Action\ErrorAction();
 			$action->setError($e);
@@ -91,17 +97,18 @@ class Application
 		$name = str_replace(' ', '', $name);
 
         $class = 'App\\Action\\' . $name . 'Action';
-		if (!class_exists($class)){
+
+        if (!class_exists($class)){
 			$action = new \App\Action\ErrorAction();
 			$action->setError( new \Exception('Action '.$name.' not defined') );
 
 			return $action;
 		}
-		
+
 		return new $class;
-		
+
 	}
-    
+
     /**
      * Loads Tokens if they are set in the session
      */
@@ -111,7 +118,7 @@ class Application
             if (!\defined('FACEBOOK_APP_ID') && isset($_SESSION['FACEBOOK_APP_ID'])){
                 \define('FACEBOOK_APP_ID', $_SESSION['FACEBOOK_APP_ID']);
             }
-            
+
             if (!\defined('FACEBOOK_APP_SECRET') && isset($_SESSION['FACEBOOK_APP_SECRET'])){
                 \define('FACEBOOK_APP_SECRET', $_SESSION['FACEBOOK_APP_SECRET']);
             }
