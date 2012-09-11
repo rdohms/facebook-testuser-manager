@@ -84,9 +84,10 @@ class AjaxUserinfoBatchAction extends Base
             }
 
         } catch (\Exception $e) {
-            error_log(var_export($e,true));
+
             $this->redirectToError($e, true);
             return;
+
         }
 
         $response = new \App\JsonResponse(200, null, $detailsArray);

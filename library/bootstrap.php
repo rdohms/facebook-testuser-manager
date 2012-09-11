@@ -1,12 +1,10 @@
 <?php
 
-session_start();
-
 define('ROOT_PATH', __DIR__ . '/../');
 define('LIB_PATH', ROOT_PATH . 'library/');
 define('TPL_PATH', ROOT_PATH . 'templates/');
 
-define('APP_VERSION', '0.11');
+define('APP_VERSION', '0.11.1');
 
 //Define library folders
 $includePaths = array();
@@ -25,6 +23,10 @@ if (file_exists(ROOT_PATH . 'config/config.ini.php')){
     }
 } else {
     define('USE_SESSION', true);
+}
+
+if (\defined('USE_SESSION') && \USE_SESSION) {
+    session_start();
 }
 
 //Include basic files

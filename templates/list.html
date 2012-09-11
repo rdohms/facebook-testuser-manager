@@ -21,7 +21,8 @@
     				--><a href="{{user.login_url}}"><div class="cmndBorder log"><img src="images/connect.png" alt="Log in as user" title="Click here to login with this user on facebook." ></div></a><!-- 
     				--><a href="javascript:addFriend({{user.id}},'{{user.access_token}}');"><div class="cmndBorder add"><img src="images/user_add.png" alt="Add new friend"  title="Click here to add a new friend to this user and see existing friends."></div></a><!-- 
     				--><a href="javascript:deleteUser({{user.id}},'{{user.access_token}}');"><div class="cmndBorder del"><img src="images/delete.png" alt="Delete user"  title="Click here to remove this user."></div></a><!-- 
-    				--><a href="javascript:showToken('{{user.access_token}}');"><div class="cmndBorder tok"><img src="images/token.png" alt="View access token" title="Click here to view this user's access token."></div></a>
+    				--><a href="javascript:showToken('{{user.access_token}}');"><div class="cmndBorder tok"><img src="images/token.png" alt="View access token" title="Click here to view this user's access token."></div></a><!-- 
+                    --><a href="javascript:changeName('{{user.id}}');"><div class="cmndBorder chn"><img src="images/rename.png" alt="Change name" title="Click here to change user's name."></div></a>
     			</div>
     		<div id="user_{{user.id}}">
     			<p class="id">{{user.id}}</p>

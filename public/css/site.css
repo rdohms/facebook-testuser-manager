@@ -69,6 +69,7 @@ a { color: #3F4959; text-decoration: none;  }
 .user_list .wrapper .cmndBorder.add {border-color:#8CB285; background:#D7EFD2; }
 .user_list .wrapper .cmndBorder.del {border-color:#FF8484; background:#FCD4D4; }
 .user_list .wrapper .cmndBorder.tok {border-color:#cccccc; background:#F2F2F2; }
+.user_list .wrapper .cmndBorder.chn {border-color:#cccccc; background:#F2F2F2; }
 .user_list .perms {overflow:auto; height: 46px;}
 
 .xdebug-var-dump{ background-color: #FFF; padding: 10px; }
@@ -97,3 +98,5 @@ a { color: #3F4959; text-decoration: none;  }
 #tokenerr { margin: 0;	padding: 0;	line-height: 1.8em; }
 #tokenerr li { padding: 0px; margin-left: 25px; list-style-type: circle; }
 #tokenerr li strong { font-weight: bold; }
+
+.change_name{border:0; font-weight:bold; border-bottom:1px solid darkGray;}

@@ -22,6 +22,9 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.11.1
+* Changing name of user
+
 ### 0.11
 * Using batch request in list page
 * Update of facebook.php library

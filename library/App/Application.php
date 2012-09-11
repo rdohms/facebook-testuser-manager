@@ -97,7 +97,8 @@ class Application
 		$name = str_replace(' ', '', $name);
 
         $class = 'App\\Action\\' . $name . 'Action';
-		if (!class_exists($class)){
+
+        if (!class_exists($class)){
 			$action = new \App\Action\ErrorAction();
 			$action->setError( new \Exception('Action '.$name.' not defined') );
 

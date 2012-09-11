@@ -309,6 +309,86 @@ function getAndReplaceAppName(appid) {
             noName();
         }
     });
+    
+}
+
+function changeNamePress(e, uid, nameElem, loadingElem) {
+    
+    e           = e || window.event;
+    e.target    = e.target || e.srcElement;
+    
+    if (e.keyCode == 13) {
+        
+        loadingElem.style.display = 'inline';
+        
+        $.ajax({
+            data:{
+                uid: uid,
+                name: e.target.value
+            },
+            url: "ajax-change-name",
+            dataType: "json",
+            type: "POST",
+            success: function(r) {
+                
+                nameElem.innerHTML = e.target.value;
+                nameElem.style.display = 'inline';
+                e.target.parentNode.removeChild(e.target);
+                loadingElem.parentNode.removeChild(loadingElem);
+                
+            },
+            error: function(response) {
+
+                nameElem.style.display = 'inline';
+                e.target.parentNode.removeChild(e.target);
+                loadingElem.parentNode.removeChild(loadingElem);
+                
+            }
+            
+        });
+        
+    }
+    
+}
+
+function changeName(uid) {
+    
+    var userDiv = document.getElementById('user_' + uid),
+        name;
+    
+    for (var i in userDiv.childNodes) {
+        
+        if (userDiv.childNodes[i].className &&
+            userDiv.childNodes[i].className.indexOf('name') > -1
+        ) {
+            name = userDiv.childNodes[i];
+            break;
+        }
+        
+    }
+    
+    if (!name) {
+        return;
+    }
+    
+    name.style.display = 'none';
+    var input = document.createElement('input'),
+        img   = document.createElement('img');
+    
+    img.src = 'images/loading-small.gif';
+    img.alt = '';
+    img.style.display = 'none';
+    
+    input.className     = 'change_name';
+    input.onkeypress    = function(e) {
+        changeNamePress(e, uid, name, img);
+    }
+    
+    name.parentNode.insertBefore(input, name);
+    name.parentNode.insertBefore(img, name);
+    
+    input.focus();
+    input.value         = name.innerHTML;
 
     
 }
