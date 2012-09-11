@@ -6,6 +6,8 @@
 {% include newuser %}
 </div>
 <h1 id="user_list">Existing Test Users</h1>
+<input type="text" class="filter_user" onkeyup="filterUsers(this.value)" placeholder="Filter users"/>
+<div class="clr"></div>
 <div class="user_list">
 	<ul>
 		{% for user in users %}
@@ -90,6 +92,7 @@
 	</div>
 </script>
 
+<div class="invisible"><img src="images/tooltip/black_arrow.png" alt=""/></div>
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
         var users = [

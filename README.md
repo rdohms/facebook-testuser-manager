@@ -22,6 +22,9 @@ Installation is very straight forward:
 
 ## Changelog
 
+### 0.11.2
+* Filter users by name in list view
+
 ### 0.11.1
 * Changing name of user
 

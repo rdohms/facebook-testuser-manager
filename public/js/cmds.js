@@ -393,4 +393,22 @@ function changeName(uid) {
     
 }
 
+function filterUsers(name) {
+    
+    $('.user_list ul li').each(function(i, el) {
+        
+        var el = $(el);
+        if (el.find('.name').html().toLowerCase().indexOf(name.toLowerCase()) > -1) {
+            el.show();
+        } else {
+            el.hide();
+        }
+        
+    });
+    
+}
+
+
+
+
 
