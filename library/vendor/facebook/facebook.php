@@ -291,6 +291,17 @@ class Facebook
   public function useFileUploadSupport() {
     return $this->fileUploadSupport;
   }
+  
+  
+  /**
+   * Check if the Facebook SSL certificate is avaliable.
+   *
+   * @return String the base domain
+   */
+  public function useSSLCertificate() {
+    return file_exists(getcwd() . "/../library/App/Facebook/fb_ca_chain_bundle.crt");
+  }
+
 
   /**
    * Get the data from a signed_request token
@@ -597,6 +608,13 @@ class Facebook
       $opts[CURLOPT_POSTFIELDS] = http_build_query($params, null, '&');
     }
     $opts[CURLOPT_URL] = $url;
+    
+    // Do we have a SSL certificate from Facebook?
+    if ($this->useSSLCertificate()) {
+      $opts[CURLOPT_SSL_VERIFYPEER] = true;
+      $opts[CURLOPT_SSL_VERIFYHOST] = 2;
+      $opts[CURLOPT_CAINFO] = getcwd() . "/../library/App/Facebook/fb_ca_chain_bundle.crt";
+    }
 
     // disable the 'Expect: 100-continue' behaviour. This causes CURL to wait
     // for 2 seconds if the server does not support this header.

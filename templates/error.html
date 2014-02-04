@@ -1,6 +1,16 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+{% if error.code == 60 %}
+<h1>Facebook SSL certificate error</h1>
+<p>cURL is missing the Facebook SSL certificate and can't connect to the Graph API.</p>
+<p>
+    You need to download the certificate file <a href="https://github.com/facebook/php-sdk/raw/master/src/fb_ca_chain_bundle.crt" class="external">fb_ca_chain_bundle.crt</a> 
+    from the <a href="https://github.com/facebook/php-sdk">Facebook PHP SDK</a> and save it as 
+    <strong>./library/App/Facebook/fb_ca_chain_bundle.crt</strong>
+</p>
+{% endif %}
 <h1 id="error">Error!</h1>
 <p class="error_msg">{{error.getMessage|raw}}</p>
 {% endblock %}

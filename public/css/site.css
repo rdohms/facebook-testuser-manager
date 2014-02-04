@@ -20,6 +20,7 @@ div#menu a:hover { color: #FFF;}
 
 h1 { font-size: 24px; font-weight: bold; margin: 8px 0 10px 0; color: #E3AF19; font-family: 'TitilliumText22LBold', sans-serif; }
 a { color: #3F4959; text-decoration: none;  }
+a { color: #3F4959; text-decoration: underline;  }
 
 .hidden { display: none;}
 
